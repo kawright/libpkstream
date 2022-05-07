@@ -5,6 +5,7 @@ This file contains the implementation of the entire `pkstream` library.
 #include "pkstream.h"
 
 #include <string.h>
+#include <stdlib.h>
 
 struct ps_PeekStream {
     char    *str;
