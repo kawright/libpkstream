@@ -15,11 +15,34 @@ struct ps_PeekStream {
     int     col;
 };
 
+ps_ErrCode ps_adv(ps_PeekStream stream) {
+    int iseos;
+    ps_iseos(stream, &iseos);
+    if (iseos) {
+        return ps_ERREOS;
+    }
+    stream->curs++;
+    
+    return ps_ERROK;
+}
+
 ps_ErrCode ps_del(ps_PeekStream stream) {
 
     free(stream->str);
     free(stream);
 
+    return ps_ERROK;
+}
+
+ps_ErrCode ps_iseos(ps_PeekStream stream, int *ret) {
+    int out;
+    if (stream->curs >= (stream->len - 1)) {
+        out = 1;
+    } else {
+        out = 0;
+    }
+
+    *ret = out;
     return ps_ERROK;
 }
 
