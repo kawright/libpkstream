@@ -52,3 +52,18 @@ This project consists of the following files and folders:
 - `src`: This folder contains all source and header files in the `libpkstream` library.
     - `src/pkstream.c`: Contains the implementation of all public API members of the `libpkstream` library.
     - `src/pkstream.h`: The header file for the `libpkstream` library.
+- `tests`: This folder contains test cases that are written in C and can be run using the `runtests.py` script.
+    - `src/test_adv_and_iseos.c`: A test case for ensuring `ps_adv` and `is_eos` both work properly.
+    - `src/test_getcol.c`: A test case for ensuring `ps_getcol` works correctly.
+    - `src/test_getlen.c`: A test case for ensuring `ps_getlen` works correctly.
+    - `src/test_getline.c`: A test case for ensuring `ps_getline` works correctly.
+    - `src/test_getpos.c`: A test case for ensuring `ps_getpos` works correctly.
+    - `src/test_new_and_del.c`: A test case for ensuring `ps_new` and `ps_del` both work properly.
+    - `src/test_peek.c`: A test case for ensuring `ps_peek` works correctly.
+    - `src/test_pop.c`: A test case for ensuring `ps_pop` works correctly.
+    - `src/test_read.c`: A test case for ensuring `ps_read` works correctly.
+- `.gitignore`: The project `.gitignore` file. Allows matching files and directories to be omitted from tracking by `git`. Used mostly for build output, configuration and enviroment files, etc.
+- `LICENSE`: Contains the text of the license used by this project (MIT).
+- `Makefile`: The project `Makefile` file. Defines instructions for building and installing `libpkstream`.
+- `README.md`: This README file.
+- `runtests.py`: A python script that acts like a test harness for running the tests defined in the `tests` folder.
