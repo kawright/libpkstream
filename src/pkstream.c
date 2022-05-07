@@ -22,7 +22,15 @@ ps_ErrCode ps_adv(ps_PeekStream stream) {
         return ps_ERREOS;
     }
     stream->curs++;
-    
+
+    /* Reset col and increment line if \n detected: */
+    if (stream->str[stream->curs] == '\n') {
+        stream->col = 0;
+        stream->ln++;
+    } else {
+        stream->col++;
+    }
+
     return ps_ERROK;
 }
 
@@ -75,4 +83,9 @@ ps_ErrCode ps_new(char *str, ps_PeekStream *ret) {
 
    *ret = out;
    return ps_ERROK;
+}
+
+ps_ErrCode ps_read(ps_PeekStream stream, char *ret) {
+    *ret = stream->str[stream->curs];
+    return ps_ERROK;
 }
