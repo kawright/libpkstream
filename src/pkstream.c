@@ -42,6 +42,11 @@ ps_ErrCode ps_del(ps_PeekStream stream) {
     return ps_ERROK;
 }
 
+ps_ErrCode ps_getcol(ps_PeekStream stream, int *ret) {
+    *ret = stream->col;
+    return ps_ERROK;
+}
+
 ps_ErrCode ps_iseos(ps_PeekStream stream, int *ret) {
     int out;
     if (stream->curs >= (stream->len - 1)) {
@@ -79,7 +84,7 @@ ps_ErrCode ps_new(char *str, ps_PeekStream *ret) {
    out->curs = 0;
    out->len = strlen(out->str);
    out->ln = 0;
-   out->col = 0;
+   out->col = 1;
 
    *ret = out;
    return ps_ERROK;
