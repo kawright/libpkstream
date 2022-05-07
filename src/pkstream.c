@@ -57,6 +57,11 @@ ps_ErrCode ps_getline(ps_PeekStream stream, int *ret) {
     return ps_ERROK;
 }
 
+ps_ErrCode ps_getpos(ps_PeekStream stream, int *ret) {
+    *ret = stream->curs;
+    return ps_ERROK;
+}
+
 ps_ErrCode ps_iseos(ps_PeekStream stream, int *ret) {
     int out;
     if (stream->curs >= (stream->len - 1)) {
