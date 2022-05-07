@@ -3,7 +3,8 @@ BUILD_DIRS = build \
 	build/bin \
 	build/tests
 
-TEST_BINS = build/tests/test_new_and_del
+TEST_BINS = build/tests/test_new_and_del \
+	build/tests/test_adv_and_iseos
 
 .PHONY: clean tests
 
