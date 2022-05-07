@@ -7,7 +7,8 @@ TEST_BINS = build/tests/test_new_and_del \
 	build/tests/test_adv_and_iseos \
 	build/tests/test_read \
 	build/tests/test_getcol \
-	build/tests/test_getlen
+	build/tests/test_getlen \
+	build/tests/test_peek
 
 .PHONY: clean tests
 

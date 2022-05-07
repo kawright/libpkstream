@@ -105,6 +105,20 @@ ps_ErrCode ps_new(char *str, ps_PeekStream *ret) {
    return ps_ERROK;
 }
 
+ps_ErrCode ps_peek(ps_PeekStream stream, char *ret) {
+    int iseos;
+    char out;
+    ps_iseos(stream, &iseos);
+    if (iseos) {
+        out = 0;
+    } else {
+        out = stream->str[stream->curs + 1];
+    }
+
+    *ret = out;
+    return ps_ERROK;
+}
+
 ps_ErrCode ps_read(ps_PeekStream stream, char *ret) {
     *ret = stream->str[stream->curs];
     return ps_ERROK;
