@@ -7,6 +7,7 @@
 - [What is `libpkstream`?](#what-is-libpkstream)
 - [How do I install `libpkstream`?](#how-do-i-install-libpkstream)
 - [Project Manifest](#project-manifest)
+- [Running Tests](#running-tests)
 
 ---
 
@@ -67,3 +68,17 @@ This project consists of the following files and folders:
 - `Makefile`: The project `Makefile` file. Defines instructions for building and installing `libpkstream`.
 - `README.md`: This README file.
 - `runtests.py`: A python script that acts like a test harness for running the tests defined in the `tests` folder.
+
+## Running Tests
+
+`libpkstream` includes a handful of small test programs you can build and then run using the included Python test harness. To build the tests, run the following:
+
+```console
+foo@BAR:~/my_projects/libpkstream$ make tests
+```
+
+After building the tests, you can either run them one at a time (an exit code of `0` indicates success), or all at once using the included Python test harness `runtests.py`.
+
+If you want to skip any of the tests, update the respective `.c` file return the exit code `100`.
+
+---
