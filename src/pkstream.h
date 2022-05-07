@@ -1,12 +1,23 @@
 /*
-This file contains the definition of the `ps_PeekStream` struct, as well as all 
-functions which operate directly on it.
+This file contains the definitions of all public members of the `pkstream`
+library. Please refer to the README for detailed documentation on each member
+defined here.
 */
 
-#ifndef PEEKSTREAM_H_
-#define PEEKSTREAM_H_
+#ifndef PKSTREAM_H_
+#define PKSTREAM_H_
 
-#include "errcode.h"
+/*
+Contains error codes used for return statements by public functions in this
+library.
+*/
+typedef enum {
+    ps_ERROK = 0,
+    ps_ERRMEM = 1,
+    ps_ERREOS = 2,
+    ps_ERRSOS = 3,
+    ps_ERROOB = 4
+} ps_ErrCode;
 
 /*
 A character stream object which supports look-ahead operations.
