@@ -11,7 +11,8 @@
 
 ### API Reference
 
-
+- [Enum: `ps_ErrCode`](#enum-pserrcode)
+- [Struct: `ps_PeekStream`](#struct-pspeekstream)
 ---
 
 ## What is `libpkstream`?
@@ -92,7 +93,7 @@ If you want to skip any of the tests, update the respective `.c` file to immedia
 
 ## API Documentation
 
-### Enum: ps_ErrCode
+### Enum: `ps_ErrCode`
 
 ```c
 typedef enum {
@@ -106,6 +107,16 @@ _All_ functions in the `libpkstream` library return a member of `ps_ErrCode` to 
 
 | Member Name | Member Value | Description |
 |---|---|---|
-| ps_ERROK | 0 | The function completed successfully, and no errors were reported. |
-| ps_ERRMEM | 1 | An attempt to allocate heap memory failed. |
-| ps_ERREOS | 2 | The requested operation failed because the end of the string has been reached. |
+| `ps_ERROK` | `0` | The function completed successfully, and no errors were reported. |
+| `ps_ERRMEM` | `1` | An attempt to allocate heap memory failed. |
+| `ps_ERREOS` | `2` | The requested operation failed because the end of the string has been reached. |
+
+---
+
+### Struct: `ps_PeekStream`
+
+```c
+typedef struct ps_PeekStream *ps_PeekStream;
+```
+
+This opaque handle refers to a data object which contains a stream of characters and supports look-ahead operations. Please note that the attributes of this struct are a private implementation detail, and as such, their contents are not included in this API reference document.
