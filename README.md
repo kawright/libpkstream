@@ -9,6 +9,9 @@
 - [Project Manifest](#project-manifest)
 - [Running Tests](#running-tests)
 
+### API Reference
+
+
 ---
 
 ## What is `libpkstream`?
@@ -77,8 +80,32 @@ This project consists of the following files and folders:
 foo@BAR:~/my_projects/libpkstream$ make tests
 ```
 
-After building the tests, you can either run them one at a time (an exit code of `0` indicates success), or all at once using the included Python test harness `runtests.py`.
+After building the tests, you can either run them one at a time (an exit code of `0` indicates success), or all at once using the included Python test harness `runtests.py`:
 
-If you want to skip any of the tests, update the respective `.c` file return the exit code `100`.
+```console
+foo@BAR:~/my_projects/libpkstream$ ./runtests.py
+```
+
+If you want to skip any of the tests, update the respective `.c` file to immediately return the exit code `100`.
 
 ---
+
+## API Documentation
+
+### Enum: ps_ErrCode
+
+```c
+typedef enum {
+    ps_ERROK = 0,
+    ps_ERRMEM = 1,
+    ps_ERREOS = 2
+} ps_ErrCode;
+```
+
+_All_ functions in the `libpkstream` library return a member of `ps_ErrCode` to indicate what, if any, errors occurred during the execution of the function. The following error codes are defined as members of this enum.
+
+| Member Name | Member Value | Description |
+|---|---|---|
+| ps_ERROK | 0 | The function completed successfully, and no errors were reported. |
+| ps_ERRMEM | 1 | An attempt to allocate heap memory failed. |
+| ps_ERREOS | 2 | The requested operation failed because the end of the string has been reached. |
